@@ -77,11 +77,13 @@ h1, h2, h3 {
 }
 
 .blog-box {
-    background-color: #111827;
+    background-color: white;
+    color: black;
     padding: 2rem;
     border-radius: 16px;
-    border: 1px solid #374151;
+    border: 1px solid #d1d5db;
     margin-top: 2rem;
+    line-height: 1.8;
 }
 
 </style>
@@ -221,7 +223,7 @@ if generate:
             )
 
             llm = ChatGoogleGenerativeAI(
-                model="gemini-1.5-pro",
+                model=model_name,
                 temperature=temperature
             )
 
@@ -245,7 +247,7 @@ if generate:
 
             st.download_button(
                 label="📥 Download Blog",
-                data=response,
+                data=blog_output,
                 file_name="condense_blog.md",
                 mime="text/markdown"
             )
